@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>問卷</title>
+</head>
+<body>
+  <p>正在跳轉，請稍候…</p>
+  <script>
+    var API = "貼上你的 Apps Script 網址";
+
+    fetch(API)
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        window.location.replace(data.url);
+      })
+      .catch(function() {
+        // API 失敗時備用隨機
+        var s = [
+          "https://www.surveycake.com/s/G6G30",
+          "https://www.surveycake.com/s/0AobZ",
+          "https://www.surveycake.com/s/K9YWW",
+          "https://www.surveycake.com/s/7z3qN"
+        ];
+        window.location.replace(s[Math.floor(Math.random() * s.length)]);
+      });
+  </script>
+</body>
+</html>
